@@ -10,6 +10,13 @@ https://github.com/AdeleD/react-paginate
 
 -------------
 
+2 intercom widget (may need to include the project -- or publish my own npm module to ensure it remains stable)
+
+all from reactlive
+
+https://www.npmjs.com/package/react-chat-window
+----------------
+
 
 4 . Registration page for new members -- 
 

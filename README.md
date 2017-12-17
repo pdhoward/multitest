@@ -4,9 +4,9 @@
 A small working prototype used to investigate design options and tradeoffs in a multi-step interaction
 
 This requires a narrow context, limiting the language set, and establishing a sequence of actions on
-> transactions
-> banter
-> recording
+1. transactions
+2. banter
+3. recording
 
 An intercom widget and react form is integrated to assist with testing
 ## Getting Set Up

@@ -10,6 +10,20 @@ import { Link }               from 'react-router-dom'
 import PropTypes              from 'prop-types'
 import escapeRegExp           from 'escape-string-regexp'
 import sortBy                 from 'sort-by'
+import {Launcher}             from 'react-chat-window'
+import Form                   from "react-jsonschema-form";
+
+const schema = {
+  title: "Todo",
+  type: "object",
+  required: ["title"],
+  properties: {
+    title: {type: "string", title: "Title", default: "A new task"},
+    done: {type: "boolean", title: "Done?", default: false}
+  }
+};
+
+const log = (type) => console.log.bind(console, type);
 
 class ListContacts extends Component {
 
@@ -19,7 +33,22 @@ class ListContacts extends Component {
   }
 
   state = {
-    query: ''
+    query: '',
+    messageList: [
+      {
+        author: 'them',
+        type: 'text',
+        data: {
+          text: 'some text'
+        }
+      },
+      {
+        author: 'me',
+        type: 'emoji',
+        data: {
+          code: 'someCode'
+        }
+      } ]
   }
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
@@ -91,6 +120,21 @@ class ListContacts extends Component {
           </li>
         ))}
       </ol>
+
+      <Form schema={schema}
+       onChange={log("changed")}
+       onSubmit={log("submitted")}
+       onError={log("errors")} />
+
+      <Launcher
+        agentProfile={{
+          teamName: 'react-live-chat',
+          imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
+        }}
+        onMessageWasSent={this.state.messageList[0]}
+        messageList={this.state.messageList}
+      />
+
     </div>
     )
   }
