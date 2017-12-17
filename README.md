@@ -1,23 +1,25 @@
 
-## Bot Contacts App
+## MultiTest
 
-The worlds first contact application to help track your virtual network
+A small working prototype used to investigate design options and tradeoffs in a multi-step interaction
 
-Businesses connect with their customers through virtual and human agents. They are reworking their CRM strategies to leverage the array of intelligent bots to deliver  superior service in the conversational economy
+This requires a narrow context, limiting the language set, and establishing a sequence of actions on
+> transactions
+> banter
+> recording
 
-Virtual agents are growing in capability and fast becoming a differentiator in the digital economy. After all, it is not what you know but 'what' you know that matters
-
+An intercom widget and react form is integrated to assist with testing
 ## Getting Set Up
 
 Getting the server running on your local machine takes only a few steps:
 
-1. clone the project - `git clone https://github.com/pdhoward/contacts.git
+1. clone the project - `git clone https://github.com/pdhoward/multitest.git
 2. install its dependencies - `npm install`
 3. Built with create-react-app -- npm run start
 
 Also, install the backend db server
 
-1. clone the project - `git clone https://github.com/pdhoward/contactsrv.git
+1. clone the project - `git clone https://github.com/pdhoward/multitest.git
 2. install its dependencies - `npm install`
 3. start the server - `node server.js`
 
