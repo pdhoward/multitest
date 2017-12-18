@@ -10,13 +10,15 @@ import React, { Component }   from 'react';
 import ListContacts           from './ListContacts';
 import * as ContactsAPI       from './utils/ContactsAPI'
 import CreateContact          from './CreateContacts'
+import CreateProfile          from './CreateProfile'
 import { Route }              from 'react-router-dom'
 
 // note lifecycle method to load all contacts when mounted
 
 class App extends Component {
   state = {
-    contacts: [ ]
+    contacts: [ ],
+    profiles: [ ]
   }
 
   removeContact = (contact) => {
@@ -43,7 +45,13 @@ class App extends Component {
       }))
     })
   }
-
+  createProfile(profile) {
+    ContactsAPI.profile(profile).then(profile => {
+      this.setState(state => ({
+        profiles: state.profiles.concat([profile])
+      }))
+    })
+  }
   componentDidMount() {
     ContactsAPI.getAll().then((contacts) => {
       this.setState({ contacts })
@@ -63,6 +71,15 @@ class App extends Component {
           <CreateContact
             onCreateContact={ (contact) => {
               this.createContact(contact)
+              history.push('/')
+            }}
+            />
+          )} />
+
+        <Route exact path ="/profile" render={({history}) => (
+          <CreateProfile
+            onCreateProfile={ (profile) => {
+              this.createProfile(profile)
               history.push('/')
             }}
             />
