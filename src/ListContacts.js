@@ -18,22 +18,7 @@ class ListContacts extends Component {
   }
 
   state = {
-    query: '',
-    messageList: [
-      {
-        author: 'them',
-        type: 'text',
-        data: {
-          text: 'some text'
-        }
-      },
-      {
-        author: 'me',
-        type: 'emoji',
-        data: {
-          code: 'someCode'
-        }
-      } ]
+    query: ''
   }
   updateQuery = (query) => {
     this.setState({ query: query.trim() })

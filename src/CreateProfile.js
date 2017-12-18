@@ -12,14 +12,42 @@ import {Launcher}         from 'react-chat-window'
 import Form               from "react-jsonschema-form";
 
 const schema = {
-  title: "Todo",
-  type: "object",
-  required: ["title"],
-  properties: {
-    title: {type: "string", title: "Title", default: "A new task"},
-    done: {type: "boolean", title: "Done?", default: false}
+  "title": "A registration form",
+  "description": "A simple form example.",
+  "type": "object",
+  "required": [
+    "firstName",
+    "lastName"
+  ],
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "title": "First name"
+    },
+    "lastName": {
+      "type": "string",
+      "title": "Last name"
+    },
+    "age": {
+      "type": "integer",
+      "title": "Age"
+    },
+    "bio": {
+      "type": "string",
+      "title": "Bio"
+    },
+    "password": {
+      "type": "string",
+      "title": "Password",
+      "minLength": 3
+    },
+    "telephone": {
+      "type": "string",
+      "title": "Telephone",
+      "minLength": 10
+    }
   }
-};
+}
 
 const log = (type) => console.log.bind(console, type);
 
@@ -52,20 +80,21 @@ class CreateContact extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const values = serializeForm(e.target, {hash: true})
-    if (this.props.onCreateContact)
-        this.props.onCreateContact(values)
+    if (this.props.onCreateProfile)
+        this.props.onCreateProfile(values)
 
   }
   render() {
     return (
-      <div>
-      <div>
+    <div className='contact-list'>
+      <div className='contact-details'>
         <Form schema={schema}
           onChange={log("changed")}
           onSubmit={log("submitted")}
           onError={log("errors")}
         />
-
+      </div>
+      <div>
         <Launcher
           agentProfile={{
             teamName: 'react-live-chat',
@@ -76,7 +105,7 @@ class CreateContact extends Component {
           />
       </div>
       <div>
-            <Link className="close-create-contact" to="/">Close</Link>
+          <Link className="close-create-contact" to="/">Close</Link>
             <form onSubmit={this.handleSubmit} className="create-contact-form">
               <div className="create-contact-details">
                 <button>Add Profile</button>
