@@ -13,7 +13,7 @@ import Form               from "react-jsonschema-form";
 
 const schema = {
   "title": "A registration form",
-  "description": "A simple form example.",
+  "description": "xio labs",
   "type": "object",
   "required": [
     "firstName",
@@ -48,6 +48,11 @@ const schema = {
     }
   }
 }
+const formData = {
+  firstName: "name please",
+  password: "enter your secret",
+  done: true
+};
 
 const log = (type) => console.log.bind(console, type);
 
@@ -86,9 +91,10 @@ class CreateContact extends Component {
   }
   render() {
     return (
-    <div className='contact-list'>
-      <div className='contact-details'>
+    <div className='card'>
+      <div className='card-block'>
         <Form schema={schema}
+          formData={formData}
           onChange={log("changed")}
           onSubmit={log("submitted")}
           onError={log("errors")}
