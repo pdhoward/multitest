@@ -33,5 +33,12 @@ https://www.npmjs.com/package/react-jsonschema-form
 https://github.com/prometheusresearch/react-forms
 
 https://github.com/davezuko/react-reformed
+----
+
+6 FIGURE OUT how to apply styling ?????
+
+https://www.npmjs.com/package/react-jsonschema-form#installation
+https://react-bootstrap.github.io/getting-started.html
+
 
 
