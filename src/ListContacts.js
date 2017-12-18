@@ -74,6 +74,10 @@ class ListContacts extends Component {
           to="/create"
           className = "add-contact"
         >Add Contact</Link>
+        <Link
+          to="/profile"
+          className = "add-profile"
+        >Add Profile</Link>
 
       </div>
 
@@ -105,10 +109,6 @@ class ListContacts extends Component {
           </li>
         ))}
       </ol>
-      <Link
-        to="/profile"
-        className = "add-contact"
-      >Add Profile</Link>
 
     </div>
     )

@@ -109,6 +109,16 @@ body, .app {
   background-size: 28px;
   font-size: 0;
 }
+.add-profile {
+  display: block;
+  width: 73px;
+  background: white;
+  background-image: url('./icons/person.svg');
+  background-size: 28px;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-size: 0;  
+}
 
 .showing-contacts {
   text-align: center;
