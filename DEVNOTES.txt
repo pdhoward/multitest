@@ -35,13 +35,20 @@ https://github.com/prometheusresearch/react-forms
 https://github.com/davezuko/react-reformed
 ----
 
-6 FIGURE OUT how to apply styling ?????
+6 styling example for react forms
 
 https://www.npmjs.com/package/react-jsonschema-form#installation
-https://react-bootstrap.github.io/getting-started.html
 
-demo
+demo -- shows demo of using 
 https://github.com/audibene-labs/react-jsonschema-form-layout/blob/master/demo/src/index.js
+
+form extras -- diffierent UI patterns
+https://www.npmjs.com/package/react-jsonschema-form-extras
+
+-- example with hideable field
+https://jsfiddle.net/kaihendry/7fb0vyzx/
+
+
 
 
 
