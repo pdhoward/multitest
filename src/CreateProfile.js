@@ -56,8 +56,6 @@ const formData = {
 
 const log = (type) => console.log.bind(console, type);
 
-
-
 class CreateContact extends Component {
 
   static propTypes = {
@@ -83,7 +81,9 @@ class CreateContact extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    console.log("THis is e")
+    console.log(e)
+  //  e.preventDefault()
     const values = serializeForm(e.target, {hash: true})
     if (this.props.onCreateProfile)
         this.props.onCreateProfile(values)
@@ -97,7 +97,7 @@ class CreateContact extends Component {
         <Form schema={schema}
           formData={formData}
           onChange={log("changed")}
-          onSubmit={log("submitted")}
+          onSubmit={this.handleSubmit}
           onError={log("errors")}
         />
           </div>

@@ -1,5 +1,5 @@
 const api = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:5001'
-
+const apiProfile = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:5002'
 let token = localStorage.token
 
 if (!token)
@@ -31,7 +31,7 @@ export const create = (body) =>
   }).then(res => res.json())
 
 export const profile = (body) =>
-    fetch(`${api}/profile`, {
+    fetch(`${apiProfile}/api/profile`, {
       method: 'POST',
       headers: {
         ...headers,
