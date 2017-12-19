@@ -91,15 +91,17 @@ class CreateContact extends Component {
   }
   render() {
     return (
-    <div className='card'>
-      <div className='card-block'>
+    <div className='container'>
+      <div className='row'>
+        <div className="col-xs-8 col-xs-offset-2">
         <Form schema={schema}
           formData={formData}
           onChange={log("changed")}
           onSubmit={log("submitted")}
           onError={log("errors")}
         />
-      </div>
+          </div>
+        </div>
       <div>
         <Launcher
           agentProfile={{
