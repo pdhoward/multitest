@@ -32,9 +32,9 @@ const schema = {
       "type": "integer",
       "title": "Age"
     },
-    "bio": {
+    "email": {
       "type": "string",
-      "title": "Bio"
+      "title": "email"
     },
     "password": {
       "type": "string",
@@ -81,12 +81,14 @@ class CreateContact extends Component {
   }
 
   handleSubmit = (e) => {
-    console.log("THis is e")
+    console.log("This is e")
     console.log(e)
   //  e.preventDefault()
-    const values = serializeForm(e.target, {hash: true})
+    const values = serializeForm(e.formData, {hash: true})
+    console.log("This form data")
+    console.log(e.formData)
     if (this.props.onCreateProfile)
-        this.props.onCreateProfile(values)
+        this.props.onCreateProfile(e.formData)
 
   }
   render() {
