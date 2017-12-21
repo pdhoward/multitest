@@ -86,10 +86,6 @@ class CreateContact extends Component {
   handleSubmit = (e) => {
     console.log("This is e")
     console.log(e)
-  //  e.preventDefault()
-    const values = serializeForm(e.formData, {hash: true})
-    console.log("This form data")
-    console.log(e.formData)
     if (this.props.onCreateProfile)
         this.props.onCreateProfile(e.formData)
 
@@ -117,15 +113,7 @@ class CreateContact extends Component {
           messageList={this.state.messageList}
           />
       </div>
-      <div>
-          <Link className="close-create-contact" to="/">Close</Link>
-            <form onSubmit={this.handleSubmit} className="create-contact-form">
-              <div className="create-contact-details">
-                <button>Add Profile</button>
-              </div>
-            </form>
-      </div>
-      </div>
+    </div>
     )
   }
 

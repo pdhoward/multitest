@@ -13,9 +13,7 @@ const headers = {
 export const getAll = () =>
   fetch(`${apiProfile}/api`, { headers })
     .then(res => res.json())
-    .then((data) => {
-      console.log("DEBUG GET ALL")
-      console.log(data)
+    .then((data) => {      
       return data
     })
 
