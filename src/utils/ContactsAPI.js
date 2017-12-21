@@ -13,15 +13,19 @@ const headers = {
 export const getAll = () =>
   fetch(`${apiProfile}/api`, { headers })
     .then(res => res.json())
-    .then(data => data.contacts)
+    .then((data) => {
+      console.log("DEBUG GET ALL")
+      console.log(data)
+      return data
+    })
 
 export const remove = (contact) =>
-  fetch(`${api}/api/${contact.id}`, { method: 'DELETE', headers })
+  fetch(`${apiProfile}/api/${contact.id}`, { method: 'DELETE', headers })
     .then(res => res.json())
     .then(data => data.contact)
 
 export const create = (body) =>
-  fetch(`${api}/api`, {
+  fetch(`${apiProfile}/api`, {
     method: 'POST',
     headers: {
       ...headers,

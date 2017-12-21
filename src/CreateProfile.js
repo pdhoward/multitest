@@ -16,10 +16,13 @@ const schema = {
   "description": "xio labs",
   "type": "object",
   "required": [
-    "firstName",
-    "lastName"
+    "name"
   ],
   "properties": {
+    "name": {
+      "type": "string",
+      "title": "name"
+    },
     "firstName": {
       "type": "string",
       "title": "First name"
