@@ -86,37 +86,42 @@ use in Component
 const log = (type) => console.log.bind(console, type);
 
 class EditProfile extends Component {
+  constructor (props){
+            super(props);
+            this.state={
+                busy : true,
+                sessionId : localStorage.getItem('sessionId') || null,
+                resetKey : this.props || ''
+            };
+            console.log(this.props.params)
+        }
 
   static propTypes = {
     onUpdateProfile: PropTypes.func.isRequired
   }
 
-  state = {
-    messageList: [
-      {
-        author: 'them',
-        type: 'text',
-        data: {
-          text: 'some text'
-        }
-      },
-      {
-        author: 'me',
-        type: 'emoji',
-        data: {
-          code: 'someCode'
-        }
-      } ]
-  }
-
   handleSubmit = (e) => {
-    if (this.props.onCreateProfile)
-        this.props.onCreateProfile(e.formData)
+    if (this.props.onUpdateProfile)
+        this.props.onUpdateProfile(e.formData)
 
   }
-  render() {
 
-    const { contact } = this.props.match.params
+  componentDidMount() {
+    //const { contact } = JSON.parse(this.props.match.params)
+    console.log(this.props)
+
+    //const { match: { params } } = this.props;
+    /*
+  axios.get(`/api/users/${params.userId}`)
+    .then(({ data: user }) => {
+      console.log('user', user);
+
+      this.setState({ user });
+    });
+    */
+  }
+
+  render() {
 
     return (
     <div className='container'>

@@ -93,8 +93,9 @@ class App extends Component {
             }}
             />
           )} />
-        <Route exact path ="/edit:contact" render={({history}) => (
+        <Route path ="/edit/:contact" render={({history, match}) => (
           <EditProfile
+              params={match.params} 
               onUpdateProfile={ (profile) => {
                 this.updateProfile(profile)
                 history.push('/')
