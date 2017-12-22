@@ -19,44 +19,73 @@ const schema = {
     "name"
   ],
   "properties": {
+    "avatarURL": {
+      "type": "string",
+      "format": "data-url",
+      "title": "Avatar"
+    },
     "name": {
       "type": "string",
-      "title": "name"
+      "title": "Company Name"
     },
-    "firstName": {
+    "contact": {
       "type": "string",
-      "title": "First name"
+      "title": "Contact"
     },
-    "lastName": {
+    "url": {
       "type": "string",
-      "title": "Last name"
+      "title": "url"
     },
-    "age": {
+    "employees": {
       "type": "integer",
-      "title": "Age"
+      "title": "# employees"
     },
     "email": {
       "type": "string",
       "title": "email"
     },
-    "password": {
+    "addr1": {
       "type": "string",
-      "title": "Password",
-      "minLength": 3
+      "title": "Address 1"
     },
-    "telephone": {
+    "addr2": {
+      "type": "string",
+      "title": "Address 2"
+    },
+    "city": {
+      "type": "string",
+      "title": "City"
+    },
+    "state": {
+      "type": "string",
+      "title": "State"
+    },
+    "zip": {
+      "type": "string",
+      "title": "Zip"
+    },
+    "phone": {
       "type": "string",
       "title": "Telephone",
       "minLength": 10
     }
   }
 }
+/*
 const formData = {
   firstName: "name please",
   password: "enter your secret",
   done: true
 };
 
+use in Component
+<Form schema={schema}
+  formData={formData}
+  onChange={log("changed")}
+  onSubmit={this.handleSubmit}
+  onError={log("errors")}
+/>
+*/
 const log = (type) => console.log.bind(console, type);
 
 class CreateContact extends Component {
@@ -83,7 +112,7 @@ class CreateContact extends Component {
       } ]
   }
 
-  handleSubmit = (e) => {    
+  handleSubmit = (e) => {
     if (this.props.onCreateProfile)
         this.props.onCreateProfile(e.formData)
 
@@ -93,8 +122,7 @@ class CreateContact extends Component {
     <div className='container'>
       <div className='row'>
         <div className="col-xs-8 col-xs-offset-2">
-        <Form schema={schema}
-          formData={formData}
+        <Form schema={schema}          
           onChange={log("changed")}
           onSubmit={this.handleSubmit}
           onError={log("errors")}
