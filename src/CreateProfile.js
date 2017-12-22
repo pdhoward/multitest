@@ -83,9 +83,7 @@ class CreateContact extends Component {
       } ]
   }
 
-  handleSubmit = (e) => {
-    console.log("This is e")
-    console.log(e)
+  handleSubmit = (e) => {    
     if (this.props.onCreateProfile)
         this.props.onCreateProfile(e.formData)
 
