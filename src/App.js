@@ -48,7 +48,6 @@ class App extends Component {
   }
   createProfile(profile) {
     ContactsAPI.profile(profile).then(profile => {
-      console.log(profile)
       this.setState(state => ({
         contacts: state.contacts.concat([profile])
       }))
@@ -56,9 +55,10 @@ class App extends Component {
   }
   updateProfile(profile) {
     ContactsAPI.updateProfile(profile).then(profile => {
-      ContactsAPI.getAll().then((contacts) => {
-        this.setState({ contacts })
-      })
+      console.log("updating profile")
+      console.log(profile)
+      this.setState({
+        contacts: profile })    
     })
   }
   componentDidMount() {
@@ -95,7 +95,7 @@ class App extends Component {
           )} />
         <Route path ="/edit/:contact" render={({history, match}) => (
           <EditProfile
-              params={match.params} 
+              params={match.params}
               onUpdateProfile={ (profile) => {
                 this.updateProfile(profile)
                 history.push('/')

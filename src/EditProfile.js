@@ -65,36 +65,40 @@ const schema = {
       "type": "string",
       "title": "Telephone",
       "minLength": 10
-    }
+    },
+    "id": {
+      "type": "string",
+      "title": "Id"
+    },
   }
 }
-/*
+
 const formData = {
-  firstName: "name please",
-  password: "enter your secret",
-  done: true
+
 };
 
-use in Component
-<Form schema={schema}
-  formData={formData}
-  onChange={log("changed")}
-  onSubmit={this.handleSubmit}
-  onError={log("errors")}
-/>
-*/
+
 const log = (type) => console.log.bind(console, type);
 
 class EditProfile extends Component {
-  constructor (props){
-            super(props);
-            this.state={
-                busy : true,
-                sessionId : localStorage.getItem('sessionId') || null,
-                resetKey : this.props || ''
-            };
-            console.log(this.props.params)
-        }
+  constructor(props) {
+    super(props);
+    this.state = { /* initial state */ };
+    console.log(this.props)
+    const profile = JSON.parse(this.props.params.contact)
+    formData.name = profile.name
+    formData.url = profile.url
+    formData.contact = profile.contact
+    formData.phone = profile.phone
+    formData.addr1 = profile.addr1
+    formData.addr2 = profile.addr2
+    formData.city = profile.city
+    formData.state = profile.state
+    formData.zip = profile.zip
+    formData.id = profile.id
+    formData.employees = profile.employees
+    formData.email = profile.email
+  }
 
   static propTypes = {
     onUpdateProfile: PropTypes.func.isRequired
@@ -107,18 +111,8 @@ class EditProfile extends Component {
   }
 
   componentDidMount() {
-    //const { contact } = JSON.parse(this.props.match.params)
-    console.log(this.props)
 
-    //const { match: { params } } = this.props;
-    /*
-  axios.get(`/api/users/${params.userId}`)
-    .then(({ data: user }) => {
-      console.log('user', user);
 
-      this.setState({ user });
-    });
-    */
   }
 
   render() {
@@ -128,6 +122,7 @@ class EditProfile extends Component {
       <div className='row'>
         <div className="col-xs-8 col-xs-offset-2">
         <Form schema={schema}
+          formData={formData}
           onChange={log("changed")}
           onSubmit={this.handleSubmit}
           onError={log("errors")}
