@@ -97,12 +97,11 @@ class ListContacts extends Component {
                 <p>{contact.zip}</p>
                 <p>{contact.id}</p>
               </div>
-              <Link
-                to={"/profile:" + contact}
-                className = "contact-edit"
-                >Edit Profile</Link>
+              <button  onClick={()=>onDeleteContact(contact)} className='contact-edit' >
+               Edit
+              </button>
              <button  onClick={()=>onDeleteContact(contact)} className='contact-remove' >
-              Edit
+              Delete
              </button>
 
           </li>

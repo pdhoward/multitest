@@ -13,7 +13,7 @@ const headers = {
 export const getAll = () =>
   fetch(`${apiProfile}/api`, { headers })
     .then(res => res.json())
-    .then((data) => {      
+    .then((data) => {
       return data
     })
 
@@ -34,6 +34,16 @@ export const create = (body) =>
 
 export const profile = (body) =>
     fetch(`${apiProfile}/api/profile`, {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    }).then(res => res.json())
+
+export const updateProfile = (body) =>
+    fetch(`${apiProfile}/api/updateprofile`, {
       method: 'POST',
       headers: {
         ...headers,

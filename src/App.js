@@ -49,9 +49,15 @@ class App extends Component {
     ContactsAPI.profile(profile).then(profile => {
       console.log(profile)
       this.setState(state => ({
-        //profiles: state.profiles.concat([profile])
         contacts: state.contacts.concat([profile])
       }))
+    })
+  }
+  updateProfile(profile) {
+    ContactsAPI.updateProfile(profile).then(profile => {
+      ContactsAPI.getAll().then((contacts) => {
+        this.setState({ contacts })
+      })
     })
   }
   componentDidMount() {
@@ -64,7 +70,7 @@ class App extends Component {
       <div className = 'app'>
         <Route exact path ="/" render={() => (
           <ListContacts
-            onDeleteContact = { this.removeContact }
+            onDeleteContact = { this.removeContact }            
             contacts={this.state.contacts}
             />
           )} />
@@ -86,7 +92,14 @@ class App extends Component {
             }}
             />
           )} />
-
+        <Route exact path ="/edit:contact" render={({history}) => (
+          <EditProfile
+              onUpdateProfile={ (profile) => {
+                this.updateProfile(profile)
+                history.push('/')
+              }}
+              />
+            )} />
        </div>
     );
   }
