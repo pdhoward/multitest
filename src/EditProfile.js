@@ -1,14 +1,11 @@
 
 
 //////////////////////////////////////////////////////////////////////////
-/////////////////  Component To Create New Contacts    //////////////////
+/////////////////    Component To Edit Contacts        //////////////////
 ////////////////////////////////////////////////////////////////////////
 
 import React, {Component} from 'react'
-import { Link }           from "react-router-dom"
 import PropTypes          from 'prop-types'
-import serializeForm      from 'form-serialize'
-import {Launcher}         from 'react-chat-window'
 import Form               from "react-jsonschema-form";
 
 const schema = {

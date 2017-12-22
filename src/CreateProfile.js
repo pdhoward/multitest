@@ -5,9 +5,7 @@
 ////////////////////////////////////////////////////////////////////////
 
 import React, {Component} from 'react'
-import { Link }           from "react-router-dom"
 import PropTypes          from 'prop-types'
-import serializeForm      from 'form-serialize'
 import {Launcher}         from 'react-chat-window'
 import Form               from "react-jsonschema-form";
 
@@ -122,7 +120,7 @@ class CreateContact extends Component {
     <div className='container'>
       <div className='row'>
         <div className="col-xs-8 col-xs-offset-2">
-        <Form schema={schema}          
+        <Form schema={schema}
           onChange={log("changed")}
           onSubmit={this.handleSubmit}
           onError={log("errors")}

@@ -11,6 +11,7 @@ import ListContacts           from './ListContacts';
 import * as ContactsAPI       from './utils/ContactsAPI'
 import CreateContact          from './CreateContacts'
 import CreateProfile          from './CreateProfile'
+import EditProfile            from './EditProfile'
 import { Route }              from 'react-router-dom'
 
 // note lifecycle method to load all contacts when mounted
@@ -70,7 +71,7 @@ class App extends Component {
       <div className = 'app'>
         <Route exact path ="/" render={() => (
           <ListContacts
-            onDeleteContact = { this.removeContact }            
+            onDeleteContact = { this.removeContact }
             contacts={this.state.contacts}
             />
           )} />

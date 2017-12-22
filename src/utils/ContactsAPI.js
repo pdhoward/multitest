@@ -1,4 +1,4 @@
-const api = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:5001'
+// api definitions
 const apiProfile = process.env.REACT_APP_CONTACTS_API_URL || 'http://localhost:5002'
 let token = localStorage.token
 

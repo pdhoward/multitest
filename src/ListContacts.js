@@ -14,7 +14,8 @@ class ListContacts extends Component {
 
   static propTypes = {
     contacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired
+    onDeleteContact: PropTypes.func.isRequired,
+    onUpdateProfile: PropTypes.func.isRequired
   }
 
   state = {
@@ -97,12 +98,14 @@ class ListContacts extends Component {
                 <p>{contact.zip}</p>
                 <p>{contact.id}</p>
               </div>
-              <button  onClick={()=>onDeleteContact(contact)} className='contact-edit' >
-               Edit
+              <Link
+                to={"/edit/" + contact}
+                className = "contact-edit">
+                Edit
+              </Link>
+              <button  onClick={()=>onDeleteContact(contact)} className='contact-remove' >
+                Delete
               </button>
-             <button  onClick={()=>onDeleteContact(contact)} className='contact-remove' >
-              Delete
-             </button>
 
           </li>
         ))}
