@@ -85,7 +85,7 @@ use in Component
 */
 const log = (type) => console.log.bind(console, type);
 
-class CreateContact extends Component {
+class EditProfile extends Component {
 
   static propTypes = {
     onUpdateProfile: PropTypes.func.isRequired
@@ -115,6 +115,9 @@ class CreateContact extends Component {
 
   }
   render() {
+
+    const { contact } = this.props.match.params
+
     return (
     <div className='container'>
       <div className='row'>
@@ -132,4 +135,4 @@ class CreateContact extends Component {
 
 }
 
-export default CreateContact
+export default EditProfile

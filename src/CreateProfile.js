@@ -86,7 +86,7 @@ use in Component
 */
 const log = (type) => console.log.bind(console, type);
 
-class CreateContact extends Component {
+class CreateProfile extends Component {
 
   static propTypes = {
     onCreateProfile: PropTypes.func.isRequired
@@ -143,4 +143,4 @@ class CreateContact extends Component {
 
 }
 
-export default CreateContact
+export default CreateProfile
