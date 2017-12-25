@@ -5,6 +5,13 @@ DEV NOTES
 --------------------------
 
 
+0 formik
+
+https://keyholesoftware.com/2017/10/23/the-joy-of-forms-with-react-and-formik/
+
+------------------
+
+
 1. Webpage to display all messages in mongodb ---pagination -- to thumb through messages on mogodb
 https://github.com/AdeleD/react-paginate
 
