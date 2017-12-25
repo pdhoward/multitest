@@ -28,6 +28,18 @@ class ListContacts extends Component {
     this.setState({ query: ''})
   }
 
+
+// need to refactor code so that it is egneric to the alerts (maybe an array of items)
+  showAlert1 = (contact) => {
+    if (contact) return "Prayer Alert"
+  }
+  showAlert2 = (contact) => {
+    if (contact) return "Moments"
+  }
+  showAlert3 = (contact) => {
+    if (contact) return "Weekly Updates"
+  }
+
   render() {
     const { contacts, onDeleteContact } = this.props
     const { query } = this.state
@@ -87,10 +99,12 @@ class ListContacts extends Component {
                 <p>{contact.cell}</p>
               </div>
               <div className='contact-details'>
-                {contact.prayeralerts = true &&
-                <h3>Prayer Alerts</h3> }
-                <p>{String(contact.moments)}</p>
-                <p>{String(contact.updates)}</p>
+                <strong>Subscriptions</strong>
+                {this.showAlert1(contact.prayeralerts)} <b></b>
+                {this.showAlert2(contact.moments)} <b></b>
+                {this.showAlert3(contact.updates)} <b></b>
+                <pre>
+                </pre>
                 <p>{contact.id}</p>
               </div>
 
