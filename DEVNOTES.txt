@@ -7,8 +7,19 @@ DEV NOTES
 
 0 formik
 
+https://hackernoon.com/painless-react-forms-with-formik-e61b70473c60
+https://codesandbox.io/s/zl8zr8yqx
+
 https://keyholesoftware.com/2017/10/23/the-joy-of-forms-with-react-and-formik/
 
+https://www.npmjs.com/package/react-virtualized-select
+
+form examples
+https://github.com/in-the-keyhole/khs-react-form-demo
+
+> Includes Yup
+
+https://www.npmjs.com/package/yup
 ------------------
 
 
