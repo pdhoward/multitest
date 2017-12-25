@@ -81,20 +81,16 @@ class ListContacts extends Component {
                 backgroundImage: `url(${contact.avatarURL})`
                 }}
                 />
-
               <div className='contact-details'>
-                <p>{contact.name}</p>
+                <p>{contact.firstname + " " + contact.lastname }</p>
                 <p>{contact.email}</p>
-                <p>{contact.url}</p>
-                <p>{contact.contact}</p>
-                <p>{contact.phone}</p>
+                <p>{contact.cell}</p>
               </div>
               <div className='contact-details'>
-                <p>{contact.addr1}</p>
-                <p>{contact.addr2}</p>
-                <p>{contact.city}</p>
-                <p>{contact.state}</p>
-                <p>{contact.zip}</p>
+                {contact.prayeralerts = true &&
+                <h3>Prayer Alerts</h3> }
+                <p>{String(contact.moments)}</p>
+                <p>{String(contact.updates)}</p>
                 <p>{contact.id}</p>
               </div>
 

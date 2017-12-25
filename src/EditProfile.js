@@ -9,8 +9,8 @@ import PropTypes          from 'prop-types'
 import Form               from "react-jsonschema-form";
 
 const schema = {
-  "title": "A registration form",
-  "description": "xio labs",
+  "title": "Member Registration",
+  "description": "community",
   "type": "object",
   "required": [
     "name"
@@ -21,50 +21,40 @@ const schema = {
       "format": "data-url",
       "title": "Avatar"
     },
-    "name": {
+    "firstname": {
       "type": "string",
-      "title": "Company Name"
+      "title": "First Name"
     },
-    "contact": {
+    "lastname": {
       "type": "string",
-      "title": "Contact"
-    },
-    "url": {
-      "type": "string",
-      "title": "url"
-    },
-    "employees": {
-      "type": "integer",
-      "title": "# employees"
+      "title": "Last Name"
     },
     "email": {
       "type": "string",
       "title": "email"
     },
-    "addr1": {
+    "cell": {
       "type": "string",
-      "title": "Address 1"
-    },
-    "addr2": {
-      "type": "string",
-      "title": "Address 2"
-    },
-    "city": {
-      "type": "string",
-      "title": "City"
-    },
-    "state": {
-      "type": "string",
-      "title": "State"
-    },
-    "zip": {
-      "type": "string",
-      "title": "Zip"
-    },
-    "phone": {
-      "type": "string",
-      "title": "Telephone",
+      "title": "Cell Phone",
       "minLength": 10
+    },
+    "subscribe": {
+      "type": "object",
+      "title": "Notifications by text",
+      "properties": {
+        "prayeralerts": {
+          "type": "boolean",
+          "title": "Prayer Alerts"
+        },
+        "moments": {
+          "type": "boolean",
+          "title": "Encouraging words (sent 2 or 3X a week)"
+        },
+        "updates": {
+          "type": "boolean",
+          "title": "Weekly Updates"
+        }
+      }
     },
     "id": {
       "type": "string",
@@ -72,9 +62,25 @@ const schema = {
     },
   }
 }
-
+const uiSchema = {
+  "subscribe": {
+    "prayeralerts": {
+      "ui:widget": "radio"
+    },
+    "moments": {
+      "ui:widget": "radio"
+    },
+    "updates": {
+      "ui:widget": "radio"
+    }
+  }
+}
 const formData = {
-
+  "subscribe": {
+      "prayeralerts": true,
+      "moments": true,
+      "updates": true
+    },
 };
 
 
@@ -86,17 +92,9 @@ class EditProfile extends Component {
     this.state = { /* initial state */ };
     console.log(this.props)
     const profile = JSON.parse(this.props.params.contact)
-    formData.name = profile.name
-    formData.url = profile.url
-    formData.contact = profile.contact
-    formData.phone = profile.phone
-    formData.addr1 = profile.addr1
-    formData.addr2 = profile.addr2
-    formData.city = profile.city
-    formData.state = profile.state
-    formData.zip = profile.zip
-    formData.id = profile.id
-    formData.employees = profile.employees
+    formData.firstname = profile.firstname
+    formData.lastname = profile.lastname
+    formData.cell = profile.cell
     formData.email = profile.email
   }
 
@@ -123,6 +121,7 @@ class EditProfile extends Component {
         <div className="col-xs-8 col-xs-offset-2">
         <Form
           schema={schema}
+          uiSchema={uiSchema}
           formData={formData}
           onChange={log("changed")}
           onSubmit={this.handleSubmit}
