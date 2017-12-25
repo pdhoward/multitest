@@ -121,7 +121,8 @@ class EditProfile extends Component {
     <div className='container'>
       <div className='row'>
         <div className="col-xs-8 col-xs-offset-2">
-        <Form schema={schema}
+        <Form
+          schema={schema}
           formData={formData}
           onChange={log("changed")}
           onSubmit={this.handleSubmit}

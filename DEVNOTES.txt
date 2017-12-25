@@ -4,11 +4,18 @@ testing multistep interactions
 DEV NOTES
 --------------------------
 
+NOTE - for react-jsonschema-form -- GREAT EXAMPLES
+https://github.com/mozilla-services/react-jsonschema-form#tips-and-tricks
 
+
+------------------------
 0 formik
+
+https://draftjs.org/
 
 https://hackernoon.com/painless-react-forms-with-formik-e61b70473c60
 https://codesandbox.io/s/zl8zr8yqx
+
 
 https://keyholesoftware.com/2017/10/23/the-joy-of-forms-with-react-and-formik/
 
