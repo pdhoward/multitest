@@ -9,7 +9,6 @@
 import React, { Component }   from 'react';
 import ListContacts           from './ListContacts';
 import * as ContactsAPI       from './utils/ContactsAPI'
-import CreateContact          from './CreateContacts'
 import CreateProfile          from './CreateProfile'
 import EditProfile            from './EditProfile'
 import { Route }              from 'react-router-dom'
@@ -58,7 +57,7 @@ class App extends Component {
       console.log("updating profile")
       console.log(profile)
       this.setState({
-        contacts: profile })    
+        contacts: profile })
     })
   }
   componentDidMount() {
