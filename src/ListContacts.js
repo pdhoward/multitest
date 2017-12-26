@@ -48,7 +48,7 @@ class ListContacts extends Component {
 
     if (query) {
       const match = new RegExp(escapeRegExp(query), 'i')
-      showingContacts = contacts.filter((contact) => match.test(contact.name))
+      showingContacts = contacts.filter((contact) => match.test(contact.lastname))
 
     }
     else {
