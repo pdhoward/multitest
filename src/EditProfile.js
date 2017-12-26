@@ -90,8 +90,8 @@ class EditProfile extends Component {
   constructor(props) {
     super(props);
     this.state = { /* initial state */ };
-    console.log(this.props)
-    const profile = JSON.parse(this.props.params.contact)
+    const profile = JSON.parse(decodeURIComponent(this.props.params.contact))
+    console.log(profile)
     formData.firstname = profile.firstname
     formData.lastname = profile.lastname
     formData.cell = profile.cell

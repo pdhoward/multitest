@@ -109,7 +109,7 @@ class ListContacts extends Component {
               </div>
 
               <Link
-                to={"/edit/" + JSON.stringify(contact)}
+                to={"/edit/" + encodeURIComponent(JSON.stringify(contact))}
                 className = "contact-edit">
                 Edit
               </Link>
