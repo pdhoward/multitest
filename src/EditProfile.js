@@ -23,9 +23,9 @@ class EditProfile extends Component {
     Model.formData.cell = profile.cell
     Model.formData.email = profile.email
     Model.formData.id = profile.id
-    Model.formData.subscribe.prayeralerts = profile.prayeralerts
-    Model.formData.subscribe.updates = profile.updates
-    Model.formData.subscribe.moments = profile.moments
+    Model.formData.subscribe.prayeralerts = profile.subscribe.prayeralerts
+    Model.formData.subscribe.updates = profile.subscribe.updates
+    Model.formData.subscribe.moments = profile.subscribe.moments
   }
 
   static propTypes = {
@@ -34,7 +34,7 @@ class EditProfile extends Component {
 
   handleSubmit = (e) => {
     if (this.props.onUpdateProfile)
-        this.props.onUpdateProfile(e.Model.formData)
+        this.props.onUpdateProfile(e.formData)
 
   }
 
