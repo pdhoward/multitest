@@ -22,29 +22,13 @@ class App extends Component {
   }
 
   removeContact = (contact) => {
-    this.setState( (state) => ({
-      contacts: state.contacts.filter((c) => c.id !== contact.id )
-    }) )
-    ContactsAPI.remove(contact)
-  }
-
-  // included for illustration purposes. This could lead to unpredictable results
-  // by mutating state directly
-  addContact = (contact) => {
-    this.setState( (state) => ({
-      contacts: this.state.contacts.push(contact)
-    }) )
-    ContactsAPI.create(contact)
-  }
-  // this is the correct way to update state. Array.slice() and spread operators
-  // would also be apropriate
-  createContact(contact) {
-    ContactsAPI.create(contact).then(contact => {
-      this.setState(state => ({
-        contacts: state.contacts.concat([contact])
-      }))
+    ContactsAPI.remove(contact).then(cnt =>{
+      this.setState( (state) => ({
+        contacts: state.contacts.filter((c) => c.id !== contact.id )
+      }) )
     })
   }
+
   createProfile(profile) {
     ContactsAPI.profile(profile).then(profile => {
       this.setState(state => ({
@@ -54,7 +38,7 @@ class App extends Component {
   }
   updateProfile(profile) {
     ContactsAPI.updateProfile(profile).then(profile => {
-      console.log("updating profile")
+      console.log("APP JS - value returned from api call to server")
       console.log(profile)
       this.setState({
         contacts: profile })
@@ -75,15 +59,6 @@ class App extends Component {
             />
           )} />
 
-        <Route exact path ="/create" render={({history}) => (
-          <CreateContact
-            onCreateContact={ (contact) => {
-              this.createContact(contact)
-              history.push('/')
-            }}
-            />
-          )} />
-
         <Route exact path ="/profile" render={({history}) => (
           <CreateProfile
             onCreateProfile={ (profile) => {
@@ -92,6 +67,7 @@ class App extends Component {
             }}
             />
           )} />
+
         <Route path ="/edit/:contact" render={({history, match}) => (
           <EditProfile
               params={match.params}

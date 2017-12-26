@@ -42,6 +42,8 @@ class ListContacts extends Component {
 
   render() {
     const { contacts, onDeleteContact } = this.props
+    console.log("INSIDE LISTCONTACTS")
+    console.log(contacts)
     const { query } = this.state
 
     let showingContacts
@@ -55,7 +57,7 @@ class ListContacts extends Component {
       showingContacts = contacts
     }
 
-    showingContacts.sort(sortBy('name'))
+    showingContacts.sort(sortBy('firstname'))
 
     return (
       <div className = 'list-contacts'>
@@ -68,12 +70,8 @@ class ListContacts extends Component {
             onChange = { (event) => this.updateQuery(event.target.value)}
           />
         <Link
-          to="/create"
-          className = "add-contact"
-        >Add Contact</Link>
-        <Link
           to="/profile"
-          className = "add-profile"
+          className = "add-contact"
         >Add Profile</Link>
 
       </div>

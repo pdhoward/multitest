@@ -52,3 +52,4 @@ export const updateProfile = (body) =>
       body: JSON.stringify(body)
     })
     .then(res => res.json())
+    .then(data => data)

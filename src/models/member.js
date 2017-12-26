@@ -3,12 +3,11 @@ const schema = {
   "title": "Member Registration",
   "description": "community",
   "type": "object",
-  "required": [  
+  "required": [
   ],
   "properties": {
     "avatarURL": {
-      "type": "string",
-      "format": "data-url",
+      "type": "string",    
       "title": "Avatar"
     },
     "firstname": {

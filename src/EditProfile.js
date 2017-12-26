@@ -18,6 +18,7 @@ class EditProfile extends Component {
     this.state = { /* initial state */ };
     const profile = JSON.parse(decodeURIComponent(this.props.params.contact))
     console.log(profile)
+    Model.formData.avatarURL = profile.avatarURL
     Model.formData.firstname = profile.firstname
     Model.formData.lastname = profile.lastname
     Model.formData.cell = profile.cell
@@ -33,14 +34,13 @@ class EditProfile extends Component {
   }
 
   handleSubmit = (e) => {
+    console.log("inside handlesubmit of edit profile")
+    console.log(e.formData)
     if (this.props.onUpdateProfile)
         this.props.onUpdateProfile(e.formData)
-
   }
 
   componentDidMount() {
-
-
   }
 
   render() {
