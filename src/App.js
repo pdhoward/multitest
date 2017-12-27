@@ -37,11 +37,7 @@ class App extends Component {
     })
   }
   updateProfile(profile, cb) {
-    console.log("entered appjs -- executing contactsapi")
-    console.log(profile)
-    ContactsAPI.updateProfile(profile).then(profile => {
-      console.log("APP JS - value returned from api call to server")
-      console.log(profile)
+    ContactsAPI.updateProfile(profile).then(profile => {      
       this.setState({
         contacts: profile })
       cb()

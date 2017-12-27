@@ -1,0 +1,30 @@
+
+
+
+check out react-tools
+
+https://github.com/react-tools
+
+
+-------------
+
+PAGINATION SERVER SIDE and Table format for react
+
+
+-----------------
+react table -- very nice
+https://react-table.js.org/#/story/readme
+
+edit on codesandbox
+https://react-table.js.org/#/story/server-side-data
+
+npm 100k+
+https://www.npmjs.com/package/react-table
+
+add a button on table row
+https://github.com/react-tools/react-table/issues/221
+
+https://github.com/react-tools/react-table#custom-cell-header-and-footer-rendering
+
+example button
+https://codepen.io/aaronschwartz/pen/awOyQq?editors=0010
