@@ -37,6 +37,9 @@ class EditProfile extends Component {
     console.log("inside handlesubmit of edit profile")
     console.log(e.formData)
     if (this.props.onUpdateProfile)
+        console.log("executing on update profile")
+        console.log(this.props)
+        console.log(e.formData)
         this.props.onUpdateProfile(e.formData)
   }
 

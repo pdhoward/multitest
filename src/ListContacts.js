@@ -98,9 +98,9 @@ class ListContacts extends Component {
               </div>
               <div className='contact-details'>
                 <strong>Subscriptions</strong>
-                {this.showAlert1(contact.subscribe.prayeralerts)} <b></b>
-              {this.showAlert2(contact.subscribe.moments)} <b></b>
-            {this.showAlert3(contact.subscribe.updates)} <b></b>
+                  {this.showAlert1(contact.subscribe.prayeralerts)} <b></b>
+                  {this.showAlert2(contact.subscribe.moments)} <b></b>
+                  {this.showAlert3(contact.subscribe.updates)} <b></b>
                 <pre>
                 </pre>
                 <p>{contact.id}</p>

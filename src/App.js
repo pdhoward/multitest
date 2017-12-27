@@ -36,12 +36,15 @@ class App extends Component {
       }))
     })
   }
-  updateProfile(profile) {
+  updateProfile(profile, cb) {
+    console.log("entered appjs -- executing contactsapi")
+    console.log(profile)
     ContactsAPI.updateProfile(profile).then(profile => {
       console.log("APP JS - value returned from api call to server")
       console.log(profile)
       this.setState({
         contacts: profile })
+      cb()
     })
   }
   componentDidMount() {
@@ -72,8 +75,9 @@ class App extends Component {
           <EditProfile
               params={match.params}
               onUpdateProfile={ (profile) => {
-                this.updateProfile(profile)
-                history.push('/')
+                this.updateProfile(profile, function(){
+                  history.push('/')
+                })
               }}
               />
             )} />
