@@ -73,6 +73,10 @@ class ListContacts extends Component {
           to="/profile"
           className = "add-contact"
         >Add Profile</Link>
+        <Link
+          to="/chat"
+          className = "add-chat"
+        >Chat</Link>
 
       </div>
 

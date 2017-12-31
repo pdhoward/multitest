@@ -109,11 +109,11 @@ body, .app {
   background-size: 28px;
   font-size: 0;
 }
-.add-profile {
+.add-chat {
   display: block;
   width: 73px;
   background: white;
-  background-image: url('./icons/person.svg');
+  background-image: url('./icons/chat.svg');
   background-size: 28px;
   background-position: center;
   background-repeat: no-repeat;

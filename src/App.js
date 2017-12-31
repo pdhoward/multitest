@@ -11,6 +11,7 @@ import ListContacts           from './ListContacts';
 import * as ContactsAPI       from './utils/ContactsAPI'
 import CreateProfile          from './CreateProfile'
 import EditProfile            from './EditProfile'
+import Chat                   from './components/Chat'
 import { Route }              from 'react-router-dom'
 
 // note lifecycle method to load all contacts when mounted
@@ -37,7 +38,7 @@ class App extends Component {
     })
   }
   updateProfile(profile, cb) {
-    ContactsAPI.updateProfile(profile).then(profile => {      
+    ContactsAPI.updateProfile(profile).then(profile => {
       this.setState({
         contacts: profile })
       cb()
@@ -64,6 +65,12 @@ class App extends Component {
               this.createProfile(profile)
               history.push('/')
             }}
+            />
+          )} />
+
+        <Route exact path ="/chat" render={() => (
+          <Chat
+            contacts={this.state.contacts}
             />
           )} />
 
