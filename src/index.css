@@ -17,6 +17,18 @@ body, .app {
   background: #f5f5f5;
 }
 
+
+/* chat */
+.chat-widget {
+    float:none;
+    color: #333333;
+    height: 800px;
+    margin-top: 200px;
+    margin: 0 auto;
+    padding: 10px 0;
+    display: flex;
+}
+
 /* CreateContact */
 
 .close-create-contact {
