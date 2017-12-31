@@ -1,0 +1,23 @@
+
+
+-----------------------------
+
+
+https://github.com/LucasBassetti/react-simple-chatbot
+https://www.npmjs.com/package/react-simple-chatbot    
+https://lucasbassetti.com.br/react-simple-chatbot/
+
+
+GREAT EXAMPLES
+https://lucasbassetti.com.br/react-simple-chatbot/#/docs/form
+
+
+--------------------
+
+
+
+web site portfolio incorporating chat widget
+
+https://github.com/lackdaz
+
+https://github.com/lackdaz/lackdaz.github.io
