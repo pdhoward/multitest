@@ -55,7 +55,7 @@ export const updateProfile = (body) =>
     .then(data => data)
 
 // refactor - test chat
-export const updateRegistration = (body) =>
+export const updateRegistration = (body, cb) => {
     fetch(`${apiProfile}/chat`, {
       method: 'POST',
       headers: {
@@ -65,4 +65,5 @@ export const updateRegistration = (body) =>
       body: JSON.stringify(body)
     })
     .then(res => res.json())
-    .then(data => data)
+    .then(data => cb(data))
+  }

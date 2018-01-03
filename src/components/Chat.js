@@ -11,7 +11,9 @@ const post = (msg = "this worked") => console.log.bind(console, msg);
 class Chat extends Component {
   constructor(props) {
     super(props);
-    this.state = { /* initial state */ };
+    this.state = {
+      values: {}
+    };
   }
 
   componentDidMount() {
@@ -19,7 +21,13 @@ class Chat extends Component {
   }
 
   updateRegistration(values, cb) {
-    ContactsAPI.updateRegistration(values).then(values => {
+    let msg = {}
+    msg.name = values['name'].value
+    msg.age = values['age'].value
+    msg.gender = values['gender'].value
+    ContactsAPI.updateRegistration(msg, (values) => {
+      console.log("call back from http round trip")
+      console.log(values)
       this.setState({
         values: values })
       cb()
@@ -27,7 +35,9 @@ class Chat extends Component {
   }
 
   handleEnd({ steps, values }) {
+     console.log("-----steps")
      console.log(steps);
+     console.log("------values")
      console.log(values);
      this.updateRegistration(steps, function(){
        alert(`Chat handleEnd callback! Number: ${values[0]}`);
