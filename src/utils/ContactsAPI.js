@@ -53,3 +53,16 @@ export const updateProfile = (body) =>
     })
     .then(res => res.json())
     .then(data => data)
+
+// refactor - test chat
+export const updateRegistration = (body) =>
+    fetch(`${apiProfile}/chat`, {
+      method: 'POST',
+      headers: {
+        ...headers,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    })
+    .then(res => res.json())
+    .then(data => data)

@@ -1,6 +1,7 @@
 
 import React, {Component}     from 'react'
 import PropTypes              from 'prop-types';
+import * as ContactsAPI       from '../utils/ContactsAPI'
 import Review                 from './Review';
 import ChatBot                from 'react-simple-chatbot';
 
@@ -8,15 +9,30 @@ import ChatBot                from 'react-simple-chatbot';
 const post = (msg = "this worked") => console.log.bind(console, msg);
 
 class Chat extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { /* initial state */ };
+  }
 
   componentDidMount() {
     this.handleEnd = this.handleEnd.bind(this);
   }
 
+  updateRegistration(values, cb) {
+    ContactsAPI.updateRegistration(values).then(values => {
+      this.setState({
+        values: values })
+      cb()
+    })
+  }
+
   handleEnd({ steps, values }) {
      console.log(steps);
      console.log(values);
-    alert(`Chat handleEnd callback! Number: ${values[0]}`);
+     this.updateRegistration(steps, function(){
+       alert(`Chat handleEnd callback! Number: ${values[0]}`);
+     })
+
   }
 
   render() {
