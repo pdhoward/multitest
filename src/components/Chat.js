@@ -4,7 +4,21 @@ import PropTypes              from 'prop-types';
 import Review                 from './Review';
 import ChatBot                from 'react-simple-chatbot';
 
+
+const post = (msg = "this worked") => console.log.bind(console, msg);
+
 class Chat extends Component {
+
+  componentDidMount() {
+    this.handleEnd = this.handleEnd.bind(this);
+  }
+
+  handleEnd({ steps, values }) {
+     console.log(steps);
+     console.log(values);
+    alert(`Chat handleEnd callback! Number: ${values[0]}`);
+  }
+
   render() {
     return (
 
@@ -13,6 +27,7 @@ class Chat extends Component {
      <div className='chat-widget'>
 
       <ChatBot
+        handleEnd={this.handleEnd}
         steps={[
           {
             id: '1',
