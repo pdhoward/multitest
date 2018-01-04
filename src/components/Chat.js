@@ -14,11 +14,11 @@ class Chat extends Component {
     this.state = {
       values: {}
     };
+    this.handleEnd = this.handleEnd.bind(this);
+    this.updateRegistration = this.updateRegistration.bind(this);
   }
 
   componentDidMount() {
-    this.handleEnd = this.handleEnd.bind(this);
-    this.updateRegistration = this.updateRegistration.bind(this);
   }
 
   updateRegistration(values, cb) {
