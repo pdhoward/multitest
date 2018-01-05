@@ -8,20 +8,22 @@ class Review extends Component {
 
     this.state = {
       name: '',
-      gender: '',
-      age: '',
+      prayeralerts: '',
+      moments: '',
+      updates: '',
+      cell: ''
     };
   }
 
   componentWillMount() {
     const { steps } = this.props;
-    const { name, gender, age } = steps;
+    const { name, prayeralerts, moments, updates, cell} = steps;
 
-    this.setState({ name, gender, age });
+    this.setState({ name, prayeralerts, moments, updates, cell });
   }
 
   render() {
-    const { name, gender, age } = this.state;
+    const { name, prayeralerts, moments, updates, cell } = this.state;
     return (
       <div style={{ width: '100%' }}>
         <h3>Summary</h3>
@@ -32,12 +34,20 @@ class Review extends Component {
               <td>{name.value}</td>
             </tr>
             <tr>
-              <td>Gender</td>
-              <td>{gender.value}</td>
+              <td>Prayer Alerts</td>
+              <td>{prayeralerts.value}</td>
             </tr>
             <tr>
-              <td>Age</td>
-              <td>{age.value}</td>
+              <td>Updates</td>
+              <td>{updates.value}</td>
+            </tr>
+            <tr>
+              <td>Moments</td>
+              <td>{moments.value}</td>
+            </tr>
+            <tr>
+              <td>Cell</td>
+              <td>{cell.value}</td>
             </tr>
           </tbody>
         </table>

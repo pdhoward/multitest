@@ -24,8 +24,10 @@ class Chat extends Component {
   updateRegistration(values, cb) {
     let msg = {}
     msg.name = values['name'].value
-    msg.age = values['age'].value
-    msg.gender = values['gender'].value
+    msg.prayeralerts = values['prayeralerts'].value
+    msg.moments = values['moments'].value
+    msg.updates = values['updates'].value
+    msg.cell = values['cell'].value
     ContactsAPI.updateRegistration(msg, (values) => {
       console.log("call back from http round trip")
       console.log(values)
@@ -64,38 +66,59 @@ class Chat extends Component {
           {
             id: 'name',
             user: true,
-            trigger: '3',
+            trigger: '2',
+          },
+          {
+            id: '2',
+            message: 'Hi {previousValue}! Would you like prayer alerts?',
+            trigger: 'prayeralerts',
+          },
+          {
+            id: 'prayeralerts',
+            options: [
+              { value: 'yes', label: 'Yes', trigger: '3' },
+              { value: 'no', label: 'No', trigger: '3' },
+            ],
           },
           {
             id: '3',
-            message: 'Hi {previousValue}! What is your gender?',
-            trigger: 'gender',
+            message: 'Updates?',
+            trigger: 'updates',
           },
           {
-            id: 'gender',
+            id: 'updates',
             options: [
-              { value: 'male', label: 'Male', trigger: '5' },
-              { value: 'female', label: 'Female', trigger: '5' },
+              { value: 'yes', label: 'Yes', trigger: '4' },
+              { value: 'no', label: 'No', trigger: '4' },
+            ],
+          },
+          {
+            id: '4',
+            message: 'Moments?',
+            trigger: 'moments',
+          },
+          {
+            id: 'moments',
+            options: [
+              { value: 'yes', label: 'Yes', trigger: '5' },
+              { value: 'no', label: 'No', trigger: '5' },
             ],
           },
           {
             id: '5',
-            message: 'How old are you?',
-            trigger: 'age',
+            message: 'What is your cell phone?',
+            trigger: 'cell',
           },
           {
-            id: 'age',
+            id: 'cell',
             user: true,
             trigger: '7',
             validator: (value) => {
-              if (isNaN(value)) {
-                return 'value must be a number';
-              } else if (value < 0) {
-                return 'value must be positive';
-              } else if (value > 120) {
-                return `${value}? Come on!`;
+              if (value.length > 10) {
+                return 'invalid cell number';
+              } else if (value.length < 10) {
+                return 'invalid cell number - did you include area code';
               }
-
               return true;
             },
           },
@@ -131,8 +154,10 @@ class Chat extends Component {
             id: 'update-fields',
             options: [
               { value: 'name', label: 'Name', trigger: 'update-name' },
-              { value: 'gender', label: 'Gender', trigger: 'update-gender' },
-              { value: 'age', label: 'Age', trigger: 'update-age' },
+              { value: 'prayeralerts', label: 'PrayerAlerts', trigger: 'update-prayeralerts' },
+              { value: 'updates', label: 'Updates', trigger: 'update-updates' },
+              { value: 'moments', label: 'Moments', trigger: 'update-moments' },
+              { value: 'cell', label: 'Cell', trigger: 'update-cell' },
             ],
           },
           {
@@ -141,13 +166,23 @@ class Chat extends Component {
             trigger: '7',
           },
           {
-            id: 'update-gender',
-            update: 'gender',
+            id: 'update-prayeralerts',
+            update: 'prayeralerts',
             trigger: '7',
           },
           {
-            id: 'update-age',
-            update: 'age',
+            id: 'update-updates',
+            update: 'updates',
+            trigger: '7',
+          },
+          {
+            id: 'update-moments',
+            update: 'moments',
+            trigger: '7',
+          },
+          {
+            id: 'update-cell',
+            update: 'cell',
             trigger: '7',
           },
           {
