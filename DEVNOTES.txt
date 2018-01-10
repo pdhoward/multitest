@@ -4,6 +4,15 @@ testing multistep interactions
 DEV NOTES
 --------------------------
 
+
+incorporate flip move
+
+http://joshwcomeau.github.io/react-flip-move/examples/#/?_k=vauzww
+
+https://github.com/joshwcomeau/react-flip-move/blob/gh-pages/examples/components/1_Shuffle.jsx
+
+----------------
+
 NOTE - for react-jsonschema-form -- GREAT EXAMPLES
 https://github.com/mozilla-services/react-jsonschema-form#tips-and-tricks
 
