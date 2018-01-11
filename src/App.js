@@ -18,8 +18,7 @@ import { Route }              from 'react-router-dom'
 
 class App extends Component {
   state = {
-    contacts: [ ],
-    profiles: [ ]
+    contacts: [ ]
   }
 
   removeContact = (contact) => {
@@ -39,9 +38,10 @@ class App extends Component {
   }
   updateProfile(profile, cb) {
     ContactsAPI.updateProfile(profile).then(profile => {
-      this.setState({
-        contacts: profile })
-      cb()
+      ContactsAPI.getAll().then((contacts) => {
+          this.setState({ contacts })
+          cb()
+      })
     })
   }
   componentDidMount() {
