@@ -32,18 +32,8 @@ export const create = (body) =>
     body: JSON.stringify(body)
   }).then(res => res.json())
 
-export const profile = (body) =>
-    fetch(`${apiProfile}/api/profile`, {
-      method: 'POST',
-      headers: {
-        ...headers,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    }).then(res => res.json())
-
 export const updateProfile = (body) =>
-    fetch(`${apiProfile}/api/updateprofile`, {
+    fetch(`${apiProfile}/api/updateMember`, {
       method: 'POST',
       headers: {
         ...headers,

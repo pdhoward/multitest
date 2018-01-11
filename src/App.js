@@ -31,7 +31,7 @@ class App extends Component {
   }
 
   createProfile(profile) {
-    ContactsAPI.profile(profile).then(profile => {
+    ContactsAPI.create(profile).then(profile => {
       this.setState(state => ({
         contacts: state.contacts.concat([profile])
       }))
